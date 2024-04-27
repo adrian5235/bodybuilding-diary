@@ -1,0 +1,117 @@
+<div class="card">
+  <h2>{{"Phase " + phase.name}}</h2>
+  
+  <p-table [value]="phase.weeks" dataKey="id">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 5rem"></th>
+        <th>Week</th>
+        <th>Avg. weight</th>
+        <th>Avg. kcal</th>
+        <th>Weight difference</th>
+        <th>Calculated maintenance</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-week let-rowIndex="rowIndex" let-expanded="expanded">
+      <tr>
+        <td>
+          <button type="button" pButton pRipple [pRowToggler]="week" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+        </td>
+        <td>{{ "Week " + (rowIndex + 1)}}</td>
+        <td *ngIf="week.averageWeight != 0">{{ week.averageWeight }}</td>
+        <td *ngIf="week.averageWeight == 0">no data</td>
+        <td *ngIf="week.averageKcal != 0">{{ week.averageKcal }}</td>
+        <td *ngIf="week.averageKcal == 0">no data</td>
+        <td *ngIf="week.weightDifference != 0">{{ week.weightDifference }}</td>
+        <td *ngIf="week.weightDifference == 0">no data</td>
+        <td *ngIf="week.calculatedMaintenance != 0">{{ week.calculatedMaintenance }}</td>
+        <td *ngIf="week.calculatedMaintenance == 0">no data</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-week>
+      <tr>
+        <td colspan="6">
+          <div class="p-3">
+            <p-table [value]="week.days" dataKey="id" editMode="row">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Day</th>
+                  <th>Weight</th>
+                  <th>Kcal</th>
+                  <th></th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-day let-editing="editing" let-ri="rowIndex">
+                <tr [pEditableRow]="day">
+                  <td>{{ "Day " + (ri + 1)}}</td>
+                  <td>
+                    <p-cellEditor>
+                      <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="day.weight">
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                        {{ day.weight }}
+                      </ng-template>
+                    </p-cellEditor>
+                  </td>
+                  <td>
+                    <p-cellEditor>
+                      <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="day.kcal">
+                      </ng-template>
+                      <ng-template pTemplate="output">
+                        {{ day.kcal }}
+                      </ng-template>
+                    </p-cellEditor>
+                  </td>
+                  <td>
+                    <div class="flex align-items-center justify-content-center gap-2">
+                      <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" class="p-button-rounded p-button-text"></button>
+                      <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="saveDay(day)" class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                      <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" class="p-button-rounded p-button-text p-button-danger"></button>
+                      <button *ngIf="!editing" pButton pRipple type="button" icon="pi pi-trash" (click)="deleteDayInit(day.id)" class="p-button-rounded p-button-text p-button-danger"></button>
+                    </div>
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                  <td colspan="3">There are no days logged for this week yet.</td>
+                </tr>
+            </ng-template>
+            </p-table>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <button pButton pRipple type="button" icon="pi pi-plus" (click)="createDayInit()" class="p-button-rounded p-button-text p-button-success"></button>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog header="Delete existing day" [(visible)]="deleteDialog" [modal]="true" [style]="{ width: '50vw' }" [draggable]="true" [resizable]="true">
+  <span>Are you sure you want to delete the selected day?</span>
+  <div>
+    <button pButton pRipple type="button" label="Yes" (click)="deleteDay()" class="p-button-rounded p-button-text p-button-danger"></button>
+    <button pButton pRipple type="button" label="No" (click)="hideDialog()" class="p-button-rounded p-button-text p-button-danger"></button>
+  </div>
+</p-dialog>
+
+<!-- display day number as header -->
+<p-dialog header="Add new day" [(visible)]="createDialog" [modal]="true" [style]="{ width: '50vw' }" [draggable]="true" [resizable]="true">
+  <div class="py-4">
+    <span class="p-float-label">
+      <input pInputText id="weight" [(ngModel)]="day.weight" />
+      <label for="weight">Week</label>
+    </span>
+    <span class="p-float-label">
+      <input pInputText id="kcal" [(ngModel)]="day.kcal" />
+      <label for="kcal">Kcal</label>
+    </span>
+  </div>
+  <div>
+    <button pButton pRipple type="button" label="Yes" (click)="saveDay(day)" class="p-button-rounded p-button-text p-button-danger"></button>
+    <button pButton pRipple type="button" label="No" (click)="hideDialog()" class="p-button-rounded p-button-text p-button-danger"></button>
+  </div>
+</p-dialog>

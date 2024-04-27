@@ -1,0 +1,43 @@
+$navbar-bg-color: #333;
+
+.navbar-container {
+  background-color: $navbar-bg-color;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+::ng-deep .p-menubar {
+  border: none;
+  margin: -8px;
+  margin-bottom: 50px;
+  background-color: $navbar-bg-color;
+
+  .p-menubar-root-list {
+    margin-top: -8px;
+    margin-bottom: -8px;
+
+    .p-menuitem {
+
+      .p-menuitem-icon, .p-menuitem-text {
+        color: white;
+      }
+    
+      .p-menuitem-link:hover {
+        background-color: #5fa4ff;
+      }
+      
+      .p-menuitem-link {
+        height: 60px;
+      }
+  
+      .p-menuitem-link:focus, .p-menuitem-link-active {
+        background-color: #7a7979;
+      }
+
+      .p-menuitem-link-active {
+        font-weight: bold;
+      }
+    }
+  }
+
+}

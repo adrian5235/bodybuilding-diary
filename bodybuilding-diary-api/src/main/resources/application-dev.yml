@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/bodybuilding_diary
+    username: root
+    password: password
+  liquibase:
+    change-log: classpath:changelog.xml
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect

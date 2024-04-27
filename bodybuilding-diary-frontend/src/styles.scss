@@ -1,0 +1,17 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "https://unpkg.com/primeflex@latest/primeflex.css";
+@import "primeicons/primeicons.css";
+
+body {
+  background-color: var(--surface-200);
+}
+
+.page-container {
+  position: relative;
+}
+
+.container {
+  margin-left: 10%;
+  margin-right: 10%;
+}

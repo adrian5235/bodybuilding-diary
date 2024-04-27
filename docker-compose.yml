@@ -1,0 +1,22 @@
+services:
+  mysql:
+    container_name: mysql-bodybuilding-diary
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: bodybuilding_diary
+    volumes:
+      - mysql:/data/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - bodybuilding-diary
+    restart: unless-stopped
+
+networks:
+  bodybuilding-diary:
+    driver: bridge
+
+volumes:
+  mysql:
+    driver: local
