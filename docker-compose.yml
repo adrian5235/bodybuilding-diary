@@ -1,14 +1,16 @@
 services:
-  mysql:
-    container_name: mysql-bodybuilding-diary
-    image: mysql
+  postgres:
+    container_name: postgres-bodybuilding-diary
+    image: postgres
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: bodybuilding_diary
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: bodybuilding_diary
     volumes:
-      - mysql:/data/mysql
+      - postgres:/data/postgres
     ports:
-      - 3306:3306
+      - 5432:5432
     networks:
       - bodybuilding-diary
     restart: unless-stopped
@@ -18,5 +20,5 @@ networks:
     driver: bridge
 
 volumes:
-  mysql:
+  postgres:
     driver: local
