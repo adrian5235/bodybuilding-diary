@@ -1,9 +1,8 @@
-package com.adrian.bodybuildingdiaryapi.mapper;
+package com.adrian.bodybuildingdiaryapi.week;
 
-import com.adrian.bodybuildingdiaryapi.dto.DayDto;
-import com.adrian.bodybuildingdiaryapi.dto.WeekDto;
-import com.adrian.bodybuildingdiaryapi.model.Day;
-import com.adrian.bodybuildingdiaryapi.model.Week;
+import com.adrian.bodybuildingdiaryapi.day.DayDto;
+import com.adrian.bodybuildingdiaryapi.day.DayMapper;
+import com.adrian.bodybuildingdiaryapi.day.Day;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

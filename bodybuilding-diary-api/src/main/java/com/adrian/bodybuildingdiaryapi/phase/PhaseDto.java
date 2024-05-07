@@ -1,4 +1,6 @@
-package com.adrian.bodybuildingdiaryapi.dto;
+package com.adrian.bodybuildingdiaryapi.phase;
+
+import com.adrian.bodybuildingdiaryapi.week.WeekDto;
 
 import java.util.List;
 

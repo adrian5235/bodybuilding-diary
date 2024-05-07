@@ -1,4 +1,6 @@
-package com.adrian.bodybuildingdiaryapi.dto;
+package com.adrian.bodybuildingdiaryapi.week;
+
+import com.adrian.bodybuildingdiaryapi.day.DayDto;
 
 import java.util.List;
 

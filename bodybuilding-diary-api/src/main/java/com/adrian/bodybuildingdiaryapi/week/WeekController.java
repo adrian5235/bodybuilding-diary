@@ -1,8 +1,5 @@
-package com.adrian.bodybuildingdiaryapi.controller;
+package com.adrian.bodybuildingdiaryapi.week;
 
-import com.adrian.bodybuildingdiaryapi.dto.WeekDto;
-import com.adrian.bodybuildingdiaryapi.model.Week;
-import com.adrian.bodybuildingdiaryapi.service.WeekService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

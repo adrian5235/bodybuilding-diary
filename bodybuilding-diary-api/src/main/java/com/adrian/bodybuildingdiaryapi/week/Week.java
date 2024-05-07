@@ -1,5 +1,7 @@
-package com.adrian.bodybuildingdiaryapi.model;
+package com.adrian.bodybuildingdiaryapi.week;
 
+import com.adrian.bodybuildingdiaryapi.day.Day;
+import com.adrian.bodybuildingdiaryapi.phase.Phase;
 import jakarta.persistence.*;
 import lombok.*;
 

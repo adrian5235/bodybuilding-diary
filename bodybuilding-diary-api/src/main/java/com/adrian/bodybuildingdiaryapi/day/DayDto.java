@@ -1,4 +1,4 @@
-package com.adrian.bodybuildingdiaryapi.dto;
+package com.adrian.bodybuildingdiaryapi.day;
 
 public record DayDto(
         int id,

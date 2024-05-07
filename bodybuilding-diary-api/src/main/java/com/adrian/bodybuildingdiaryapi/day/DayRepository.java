@@ -1,6 +1,5 @@
-package com.adrian.bodybuildingdiaryapi.repository;
+package com.adrian.bodybuildingdiaryapi.day;
 
-import com.adrian.bodybuildingdiaryapi.model.Day;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DayRepository extends JpaRepository<Day, Integer> {

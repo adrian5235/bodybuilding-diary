@@ -1,6 +1,5 @@
-package com.adrian.bodybuildingdiaryapi.repository;
+package com.adrian.bodybuildingdiaryapi.phase;
 
-import com.adrian.bodybuildingdiaryapi.model.Phase;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PhaseRepository extends JpaRepository<Phase, Integer> {

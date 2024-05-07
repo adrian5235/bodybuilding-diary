@@ -1,8 +1,5 @@
-package com.adrian.bodybuildingdiaryapi.controller;
+package com.adrian.bodybuildingdiaryapi.phase;
 
-import com.adrian.bodybuildingdiaryapi.dto.PhaseDto;
-import com.adrian.bodybuildingdiaryapi.model.Phase;
-import com.adrian.bodybuildingdiaryapi.service.PhaseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
