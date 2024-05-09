@@ -14,7 +14,9 @@ public class WeekController {
     private final WeekService service;
 
     @PostMapping
-    public Week save(@RequestBody Week week) {
+    public Week save(
+            @RequestBody Week week
+    ) {
         return service.save(week);
     }
 

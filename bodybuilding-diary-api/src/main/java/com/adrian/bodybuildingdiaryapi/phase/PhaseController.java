@@ -14,7 +14,9 @@ public class PhaseController {
     private final PhaseService service;
 
     @PostMapping
-    public Phase save(@RequestBody Phase phase) {
+    public Phase save(
+            @RequestBody Phase phase
+    ) {
         return service.save(phase);
     }
 
@@ -24,7 +26,9 @@ public class PhaseController {
     }
 
     @GetMapping("/{id}")
-    public PhaseDto get(@PathVariable Integer id) {
+    public PhaseDto get(
+            @PathVariable Integer id
+    ) {
         return service.get(id);
     }
 }

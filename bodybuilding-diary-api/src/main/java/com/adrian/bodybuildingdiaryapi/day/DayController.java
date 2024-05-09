@@ -14,7 +14,9 @@ public class DayController {
     private final DayService service;
 
     @PostMapping
-    public DayDto save(@RequestBody DayDto dayDto) {
+    public DayDto save(
+            @RequestBody DayDto dayDto
+    ) {
         return service.save(dayDto);
     }
 
@@ -24,7 +26,9 @@ public class DayController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
+    public void delete(
+            @PathVariable Integer id
+    ) {
         service.delete(id);
     }
 }
