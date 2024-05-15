@@ -1,5 +1,9 @@
 package com.adrian.bodybuildingdiaryapi.auth;
 
+import com.adrian.bodybuildingdiaryapi.exception.ExpiredTokenException;
+import com.adrian.bodybuildingdiaryapi.exception.InvalidTokenException;
+import com.adrian.bodybuildingdiaryapi.exception.RoleDoesntExistException;
+import com.adrian.bodybuildingdiaryapi.exception.UserAlreadyExistsException;
 import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +23,7 @@ public class AuthenticationController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity<?> register(
             @RequestBody @Valid RegistrationRequest request
-    ) throws MessagingException {
+    ) throws MessagingException, UserAlreadyExistsException, RoleDoesntExistException {
         service.register(request);
         return ResponseEntity.accepted().build();
     }
@@ -34,7 +38,7 @@ public class AuthenticationController {
     @PatchMapping("/activate-account")
     public void confirm(
             @RequestParam String token
-    ) throws MessagingException {
+    ) throws MessagingException, InvalidTokenException, ExpiredTokenException {
         service.activateAccount(token);
     }
 }

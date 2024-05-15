@@ -15,12 +15,12 @@ public record RegistrationRequest(
         @NotEmpty(message = "Last name is required")
         @NotBlank(message = "Last name is required")
         String lastName,
-        @NotEmpty(message = "Email name is required")
-        @NotBlank(message = "Email name is required")
+        @NotEmpty(message = "Email is required")
+        @NotBlank(message = "Email is required")
         @Email(message = "Email is not formatted")
         String email,
-        @NotEmpty(message = "Password name is required")
-        @NotBlank(message = "Password name is required")
+        @NotEmpty(message = "Password is required")
+        @NotBlank(message = "Password is required")
         @Size(min = 8, message = "Password should be 8 characters long minimum")
         String password
 ) {

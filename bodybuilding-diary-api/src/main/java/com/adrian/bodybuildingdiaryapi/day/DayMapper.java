@@ -5,6 +5,8 @@ import com.adrian.bodybuildingdiaryapi.week.WeekRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 @RequiredArgsConstructor
 public class DayMapper {
@@ -24,9 +26,8 @@ public class DayMapper {
         int id = dayDto.id();
         double weight = dayDto.weight();
         int kcal = dayDto.kcal();
-        // TODO handle exception
-        Week week = weekRepository.findById(dayDto.weekId())
-                .orElseThrow();
+        Optional<Week> optionalWeek = weekRepository.findById(dayDto.weekId());
+        Week week = optionalWeek.orElse(null);
 
         return new Day(id, weight, kcal, week);
     }

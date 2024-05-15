@@ -18,6 +18,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Transactional // to load roles and authorities along with user
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return repository.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+                .orElseThrow(() -> new UsernameNotFoundException("Couldn't find user " + username));
     }
 }

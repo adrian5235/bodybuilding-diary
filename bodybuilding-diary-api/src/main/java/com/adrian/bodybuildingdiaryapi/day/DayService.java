@@ -1,11 +1,7 @@
 package com.adrian.bodybuildingdiaryapi.day;
 
-import com.adrian.bodybuildingdiaryapi.day.DayDto;
-import com.adrian.bodybuildingdiaryapi.day.DayMapper;
-import com.adrian.bodybuildingdiaryapi.day.Day;
 import com.adrian.bodybuildingdiaryapi.phase.Phase;
 import com.adrian.bodybuildingdiaryapi.week.Week;
-import com.adrian.bodybuildingdiaryapi.day.DayRepository;
 import com.adrian.bodybuildingdiaryapi.week.WeekRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -27,9 +24,8 @@ public class DayService {
 
         day = repository.save(day);
 
-        // TODO handle exception
-        Week week = weekRepository.findById(day.getWeek().getId())
-                .orElseThrow();
+        Optional<Week> optionalWeek = weekRepository.findById(day.getWeek().getId());
+        Week week = optionalWeek.orElse(null);
         updateWeekStats(week);
 
         return mapper.toDto(day);
@@ -76,22 +72,18 @@ public class DayService {
 
     private double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
-
         BigDecimal bd = new BigDecimal(Double.toString(value));
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
 
     public void delete(Integer id) {
-        // TODO handle exception
-        Day day = repository.findById(id)
-                .orElseThrow();
-
+        Optional<Day> optionalDay = repository.findById(id);
+        Day day = optionalDay.orElse(null);
         repository.delete(day);
 
-        // TODO handle exception
-        Week week = weekRepository.findById(day.getWeek().getId())
-                .orElseThrow();
+        Optional<Week> optionalWeek = weekRepository.findById(day.getWeek().getId());
+        Week week = optionalWeek.orElse(null);
         updateWeekStats(week);
     }
 }
