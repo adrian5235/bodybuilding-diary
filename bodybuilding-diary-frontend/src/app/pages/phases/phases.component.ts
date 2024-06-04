@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TableModule } from 'primeng/table';
-import { PhaseService } from '../services/phase.service';
+import { PhaseService } from '../../services/phase.service';
 import { Router } from '@angular/router';
 
 @Component({

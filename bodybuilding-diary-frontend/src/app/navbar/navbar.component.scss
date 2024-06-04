@@ -8,7 +8,9 @@ $navbar-bg-color: #333;
 
 ::ng-deep .p-menubar {
   border: none;
-  margin: -8px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: -8px;
   margin-bottom: 50px;
   background-color: $navbar-bg-color;
 

@@ -16,6 +16,17 @@ export class NavbarComponent {
     {
       label: 'Phases',
       routerLink: "/phases"
-    }
+    },
+    {
+      label: 'Login',
+      icon: 'my-margin-left pi pi-fw pi-user',
+      routerLink: "/login",
+    },
+    // {
+    //   label: 'Logout',
+    //   styleClass: 'p-ml-6',
+    //   icon: 'my-margin-left pi pi-fw pi-sign-out',
+    //   command:()=> this.logout(),
+    // }
   ];
 }

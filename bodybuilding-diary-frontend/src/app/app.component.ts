@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PhaseComponent } from './phase/phase.component';
+import { PhaseComponent } from './pages/phase/phase.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({

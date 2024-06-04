@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
-import { PhaseService } from '../services/phase.service';
+import { PhaseService } from '../../services/phase.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { DayService } from '../services/day.service';
+import { DayService } from '../../services/day.service';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmationService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';

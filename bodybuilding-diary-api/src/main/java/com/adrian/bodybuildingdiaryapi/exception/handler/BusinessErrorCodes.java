@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 
 import static org.springframework.http.HttpStatus.*;
 
+@Getter
 public enum BusinessErrorCodes {
 
     USER_EXISTS(300, CONFLICT, "User of the given username already exists"),
@@ -17,11 +18,8 @@ public enum BusinessErrorCodes {
     ACCOUNT_DISABLED(307, FORBIDDEN, "User account is disabled"),
     ENTITY_NULL(308, BAD_REQUEST, "Wanted data doesn't exist");
 
-    @Getter
     private final int code;
-    @Getter
     private final String description;
-    @Getter
     private final HttpStatus httpStatus;
 
     BusinessErrorCodes(int code, HttpStatus httpStatus, String description) {

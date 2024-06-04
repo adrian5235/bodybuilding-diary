@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { PhaseComponent } from './phase/phase.component';
-import { PhasesComponent } from './phases/phases.component';
+import { PhaseComponent } from './pages/phase/phase.component';
+import { PhasesComponent } from './pages/phases/phases.component';
+import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
   {
@@ -11,4 +12,8 @@ export const routes: Routes = [
     path: 'phases/:id',
     component: PhaseComponent
   },
+  {
+    path: 'login',
+    component: LoginComponent
+  }
 ];

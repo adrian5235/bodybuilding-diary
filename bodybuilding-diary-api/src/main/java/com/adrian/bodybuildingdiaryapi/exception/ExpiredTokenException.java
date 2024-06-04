@@ -1,4 +1,4 @@
 package com.adrian.bodybuildingdiaryapi.exception;
 
-public class InvalidTokenException extends Exception {
+public class ExpiredTokenException extends Exception {
 }

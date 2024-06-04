@@ -1,0 +1,21 @@
+<div class="flex flex-column align-items-center">
+  <h2>Login</h2>
+  <div *ngIf="errorMsg.length" class="errorContainer">
+    <p *ngFor="let msg of errorMsg">{{ msg }}</p>
+  </div>
+  <div class="flex flex-column gap-5 py-5">
+    <p-floatLabel>
+      <input pInputText id="email" [(ngModel)]="authRequest.email" />
+      <label for="email">Email</label>
+    </p-floatLabel>
+
+    <p-floatLabel>
+      <input pInputText id="password" [(ngModel)]="authRequest.password" />
+      <label for="password">Password</label>
+    </p-floatLabel>
+  </div>
+  <div class="flex gap-3 py-2">
+    <p-button (onClick)="login()" label="Sign in" severity="success" />
+    <p-button (onClick)="register()" label="Register" />
+  </div>
+</div>
